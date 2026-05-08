@@ -313,12 +313,10 @@ Return ONLY valid JSON, no markdown, no backticks:
 Rules: Never open with "I hope", "My name is", or "I wanted to reach out". Each variation uses a completely different hook. End with one low-friction CTA. Sign as ${form.sender_name}.`;
 
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/proxy", {
         method: "POST",
         headers: { 
   "Content-Type": "application/json",
-  "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY,
-  "anthropic-version": "2023-06-01"
 },
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
